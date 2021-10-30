@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { tempConverter } from "./util"
+import { tempConverter, today } from "./util"
 
 const App = () => {
   const [data, setData] = useState({});
@@ -20,9 +20,10 @@ const App = () => {
     getData();
   }, []);
 
-  console.log("data", data);
-  console.log("daily", daily);
-  console.log("current", current);
+  // console.log("data", data);
+  // console.log("daily", daily);
+  // console.log("current", current);
+  console.log("today", today);
   // console.log("helperfunc", tempConverter(300))
 
   return (
