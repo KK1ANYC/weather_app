@@ -1,21 +1,23 @@
-import './App.css';
+import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
+
 const App = () => {
-  const [weather, setWeather] = useState([]);
+  const [data, setData] = useState({});
 
   useEffect(() => {
-    const getWeather = async () => {
+    const getData = async () => {
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=40.7516&lon=-73.9755&appid=323b57d6a96e11f1f8c51778e23170c7`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=40.7516&lon=-73.9755&exclude=minutely&appid=323b57d6a96e11f1f8c51778e23170c7`
       );
-      setWeather(data.list);
+      setData(data);
     };
-    getWeather();
+    getData();
   }, []);
 
-  console.log("weather", weather);
+  console.log("data", data);
 
   return (
     <div className="App">
