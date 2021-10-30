@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { tempConverter } from "./util"
 
 const App = () => {
   const [data, setData] = useState({});
@@ -17,14 +18,9 @@ const App = () => {
     getData();
   }, []);
 
-  const tempConverter = (kelvin) => {
-    //kelvin --> fahrenheit
-    kelvin = parseFloat(kelvin);
-    return (kelvin - 273.15) * 1.8 + 32;
-  };
-
   console.log("data", data);
   console.log("daily", daily);
+  console.log("helperfunc", tempConverter(300))
 
   return (
     <div className="App">
