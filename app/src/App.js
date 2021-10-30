@@ -2,10 +2,9 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
-
 const App = () => {
   const [data, setData] = useState({});
+  const [daily, setDaily] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -13,11 +12,19 @@ const App = () => {
         `https://api.openweathermap.org/data/2.5/onecall?lat=40.7516&lon=-73.9755&exclude=minutely&appid=323b57d6a96e11f1f8c51778e23170c7`
       );
       setData(data);
+      setDaily(data.daily);
     };
     getData();
   }, []);
 
+  const tempConverter = (kelvin) => {
+    //kelvin --> fahrenheit
+    kelvin = parseFloat(kelvin);
+    return (kelvin - 273.15) * 1.8 + 32;
+  };
+
   console.log("data", data);
+  console.log("daily", daily);
 
   return (
     <div className="App">
