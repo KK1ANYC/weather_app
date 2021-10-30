@@ -6,6 +6,7 @@ import { tempConverter } from "./util"
 const App = () => {
   const [data, setData] = useState({});
   const [daily, setDaily] = useState([]);
+  const [current, setCurrent] = useState({});
 
   useEffect(() => {
     const getData = async () => {
@@ -14,13 +15,15 @@ const App = () => {
       );
       setData(data);
       setDaily(data.daily);
+      setCurrent(data.current)
     };
     getData();
   }, []);
 
   console.log("data", data);
   console.log("daily", daily);
-  console.log("helperfunc", tempConverter(300))
+  console.log("current", current);
+  // console.log("helperfunc", tempConverter(300))
 
   return (
     <div className="App">
