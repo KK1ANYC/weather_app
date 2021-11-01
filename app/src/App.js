@@ -47,13 +47,15 @@ const App = () => {
                   <div>
                     <p></p>
                     <img
-                      src=""
+                      src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
                       alt="weather_picture"
-                      width="500"
-                      height="600"
+                      width="100"
+                      height="100"
                     />
-                    <p>{day.temp.max}</p>
-                    <p>{day.temp.min}</p>
+                    <div>
+                      <p>{day.temp.max}</p>
+                      <p>{day.temp.min}</p>
+                    </div>
                   </div>
                 </div>
               );
