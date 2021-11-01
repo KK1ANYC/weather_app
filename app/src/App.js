@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { today } from "./util";
 
-
 const App = () => {
   const [data, setData] = useState({});
 
@@ -29,7 +28,8 @@ const App = () => {
     getData();
   }, []);
 
-  const { daily, current } = data;
+  const daily = data.daily || [];
+  const current = data.current || {};
 
   console.log("data", data);
   console.log("daily", daily);
@@ -38,7 +38,29 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <div></div>
+      <div>
+        {daily.length && (
+          <div>
+            {daily.map((day, idx) => {
+              return (
+                <div key={idx}>
+                  <div>
+                    <p></p>
+                    <img
+                      src=""
+                      alt="weather_picture"
+                      width="500"
+                      height="600"
+                    />
+                    <p>{day.temp.max}</p>
+                    <p>{day.temp.min}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
