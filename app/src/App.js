@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { today } from "./util";
+import { date } from "./util";
 
 const App = () => {
   const [data, setData] = useState({});
@@ -35,24 +35,6 @@ const App = () => {
   console.log("daily", daily);
   console.log("current", current);
 
-  const date = (day) => {
-    var days = [
-      "sunday",
-      "monday",
-      "tuesday",
-      "wednesday",
-      "thursday",
-      "friday",
-      "saturday",
-    ];
-    var today = new Date();
-    var today_day = today.getDay();
-    if (day === 0) {
-      return days[today_day];
-    } else {
-      return days[(today_day + day) % 7];
-    }
-  }
 
   return (
     <div className="App">
