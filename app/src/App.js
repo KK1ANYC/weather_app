@@ -35,28 +35,26 @@ const App = () => {
   console.log("daily", daily);
   console.log("current", current);
 
-
   return (
     <div className="App">
       <header className="App-header"></header>
-      <div>
+      <div className="container">
         {daily.length && (
           <div>
             {daily.map((day, idx) => {
               return (
-                <div key={idx}>
-                  <div>
-                    <p>{date(idx)}</p>
-                    <img
-                      src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-                      alt="weather_picture"
-                      width="100"
-                      height="100"
-                    />
-                    <div>
-                      <p>{day.temp.max}</p>
-                      <p>{day.temp.min}</p>
-                    </div>
+                <div key={idx} className="container__div">
+                  <p className="p__date">{date(idx)}</p>
+                  <img
+                    src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                    alt="weather_picture"
+                    width="100"
+                    height="100"
+                    className="img"
+                  />
+                  <div className="div__weather">
+                    <p>{day.temp.max}</p>
+                    <p>{day.temp.min}</p>
                   </div>
                 </div>
               );
