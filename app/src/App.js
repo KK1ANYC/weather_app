@@ -37,12 +37,13 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>Weather App</h1>
         {daily.length && (
           <div className="container">
             {daily.map((day, idx) => {
               return (
                 <div key={idx}>
-                  <div className="container__div">
+                  <div className="container__div" id={idx === 0 ? `container__current` : ``}>
                     <p className="p__date">{date(idx)}</p>
                     <img
                       src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
@@ -52,8 +53,8 @@ const App = () => {
                       className="img"
                     />
                     <div className="div__weather">
-                      <p>{Math.floor(day.temp.max)}</p>
-                      <p>{Math.floor(day.temp.min)}</p>
+                      <p id="p__temp__max" className="p__temp">{Math.floor(day.temp.max)}°</p>
+                      <p id="p__temp__min" className="p__temp">{Math.floor(day.temp.min)}°</p>
                     </div>
                   </div>
                 </div>
