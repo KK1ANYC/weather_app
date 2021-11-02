@@ -37,31 +37,31 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <div className="container">
         {daily.length && (
-          <div>
+          <div className="container">
             {daily.map((day, idx) => {
               return (
-                <div key={idx} className="container__div">
-                  <p className="p__date">{date(idx)}</p>
-                  <img
-                    src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-                    alt="weather_picture"
-                    width="100"
-                    height="100"
-                    className="img"
-                  />
-                  <div className="div__weather">
-                    <p>{day.temp.max}</p>
-                    <p>{day.temp.min}</p>
+                <div key={idx}>
+                  <div className="container__div">
+                    <p className="p__date">{date(idx)}</p>
+                    <img
+                      src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                      alt="weather_picture"
+                      width="100"
+                      height="100"
+                      className="img"
+                    />
+                    <div className="div__weather">
+                      <p>{Math.floor(day.temp.max)}</p>
+                      <p>{Math.floor(day.temp.min)}</p>
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
         )}
-      </div>
+
     </div>
   );
 };
