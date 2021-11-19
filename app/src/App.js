@@ -28,19 +28,17 @@ const App = () => {
     getData();
   }, []);
 
-  const daily = data.daily || [];
-  const current = data.current || {};
 
-  console.log("data", data);
-  console.log("daily", daily);
-  console.log("current", current);
+  // console.log("data", data);
+  // console.log("daily", daily);
+  // console.log("current", current);
 
   return (
     <div className="App">
       <h1>Weather App</h1>
-        {daily.length && (
+        {data.daily && (
           <div className="container">
-            {daily.map((day, idx) => {
+            {data.daily.map((day, idx) => {
               return (
                 <div key={idx}>
                   <div className="container__div" id={idx === 0 ? `container__current` : ``}>
